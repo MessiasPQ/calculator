@@ -17,28 +17,37 @@ namespace Calculator
 
             Console.WriteLine("Escolha a operação desejada de acordo com sua numeração.");
             Console.WriteLine("1- Adição / 2- Subtração / 3- Multiplicação / 4-Divisão.");
-            int option = int.Parse(Console.ReadLine());
+            float option = float.Parse(Console.ReadLine());
 
-            switch (option)
+            while (option == option)
             {
-                case 1:
-                    Console.WriteLine("Valor final: " + calculator.Addition(value1, value2));
+                switch (option)
+                {
+                    case 1:
+                        Console.WriteLine("Valor final: " + calculator.Addition(value1, value2));
+                        break;
+                    case 2:
+                        Console.WriteLine("Valor final: " + calculator.Subtraction(value1, value2));
+                        break;
+                    case 3:
+                        Console.WriteLine("Valor final: " + calculator.Multiplication(value1, value2));
+                        break;
+                    case 4:
+                        Console.WriteLine("Valor final: " + calculator.Division(value1, value2));
+                        break;
+                }
+                if (option < 5 && option > 0)
+                {
                     break;
-                case 2:
-                    Console.WriteLine("Valor final: " + calculator.Subtraction(value1, value2));
-                    break;
-                case 3:
-                    Console.WriteLine("Valor final: " + calculator.Multiplication(value1, value2));
-                    break;
-                case 4:
-                    Console.WriteLine("Valor final: " + calculator.Division(value1, value2));
-                    break;
-                default:
+                }
+                else
+                {
                     Console.WriteLine("Valor inválido, tente novamente.");
-                    break;
+                    Console.WriteLine("1- Adição / 2- Subtração / 3- Multiplicação / 4-Divisão.");
+                    option = float.Parse(Console.ReadLine());
+                }
             }
         }
-
     }
 
     struct Calculator
